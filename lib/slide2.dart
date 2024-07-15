@@ -383,8 +383,7 @@ class _Slide2State extends ConsumerState<Slide2> {
 
                 // ),
                 child: index == 0
-                    ? Lottie.asset(
-                        "assets/images/BCS_Automationscreenwithout_animation.json")
+                    ? Lottie.asset("assets/images/demo.json")
                     // Lottie.asset("assets/images/BCS_Automationscreen.json",fit: BoxFit.contain, frameRate: FrameRate.max,)
                     : index == 2
                         ? SvgPicture.asset(
