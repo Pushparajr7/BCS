@@ -1,6 +1,6 @@
 # bcs
 
-A new Flutter project. (modified by samir)
+A new Flutter project. (modified by pushparaj)
 
 ## Getting Started
 
