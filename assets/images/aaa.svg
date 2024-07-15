@@ -1,0 +1,26 @@
+<svg width="93" height="100" viewBox="0 0 93 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g>
+<path d="M28 58L51.3827 85.75H4.61731L28 58Z" fill="#D30606"/>
+<rect x="5" y="85" width="46" height="7" fill="#D30606"/>
+<rect x="13" y="38" width="28" height="39" fill="#D30606"/>
+<ellipse cx="27" cy="38.5" rx="14" ry="3.5" fill="#D30606"/>
+<rect x="29.5566" y="64.3467" width="22" height="69" transform="rotate(-135 29.5566 64.3467)" fill="#D30606"/>
+<rect x="62" width="27" height="22" fill="#D30606"/>
+</g>
+<defs>
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_391_716"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_391_716" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow_391_716"/>
+</defs>
+</svg>
