@@ -1,21 +1,36 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, avoid_print
 
 import 'package:bcs/slide2.dart';
+import 'package:bcs/state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Home extends StatefulWidget {
+class Home extends ConsumerStatefulWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  ConsumerState<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
-  bool prechecks = true;
-  bool bprechecks = false;
-  bool systemchecks = false;
-  bool shutdown = false;
+class _HomeState extends ConsumerState<Home> {
+  late bool prechecks;
+  late bool bprechecks;
+  late bool systemchecks;
+  late bool shutdown;
+
+  @override
+  void initState() {
+    super.initState();
+    initialize();
+  }
+
+  void initialize() {
+    prechecks = ref.read(prechecksProcedure);
+    bprechecks = ref.read(bprechecksProcedure);
+    systemchecks = ref.read(systemchecksProcedure);
+    shutdown = ref.read(shutdownProcedure);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -176,11 +191,7 @@ class _HomeState extends State<Home> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                 onPressed: () {
-                                  // setState(() {
-                                  //   bprechecks=false;
-                                  //   prechecks=false;
-                                  //   systemchecks=true;
-                                  // });
+                                  ref.read(startProvider.notifier).state = 5;
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -200,12 +211,17 @@ class _HomeState extends State<Home> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                 onPressed: () {
-                                  setState(() {
-                                    bprechecks = false;
-                                    prechecks = false;
-                                    systemchecks = true;
-                                  });
-                                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>const Slide2()));
+                                  // setState(() {
+                                  //   bprechecks = false;
+                                  //   prechecks = false;
+                                  //   systemchecks = true;
+                                  // });
+                                  ref.read(startProvider.notifier).state = 3;
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Slide2()));
                                 },
                                 child: Text("Air System",
                                     textAlign: TextAlign.center,
@@ -220,7 +236,12 @@ class _HomeState extends State<Home> {
                                       BorderRadius.all(Radius.circular(10))),
                               child: TextButton(
                                 onPressed: () {
-                                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
+                                  ref.read(startProvider.notifier).state = 4;
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Slide2()));
                                 },
                                 child: Text("Fuel System",
                                     textAlign: TextAlign.center,
@@ -246,7 +267,16 @@ class _HomeState extends State<Home> {
                                           Radius.circular(10))),
                                   child: TextButton(
                                     onPressed: () {
-                                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>const Slide2()));
+                                      ref.read(startProvider.notifier).state =
+                                          0;
+                                      ref
+                                          .read(prechecksProvider.notifier)
+                                          .state = 0;
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const Slide2()));
                                     },
                                     child: Text("General Prechecks",
                                         textAlign: TextAlign.center,
@@ -266,7 +296,6 @@ class _HomeState extends State<Home> {
                                         prechecks = false;
                                         systemchecks = true;
                                       });
-                                      // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
                                     },
                                     child: Text("System vise Prechecks",
                                         textAlign: TextAlign.center,
@@ -297,7 +326,17 @@ class _HomeState extends State<Home> {
                                             bprechecks = true;
                                             prechecks = false;
                                           });
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const Slide2()));
+                                          ref
+                                              .read(startProvider.notifier)
+                                              .state = 0;
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 1;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("Duties of Watch Keeper",
                                             textAlign: TextAlign.center,
@@ -317,7 +356,17 @@ class _HomeState extends State<Home> {
                                             bprechecks = true;
                                             prechecks = false;
                                           });
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const Slide2()));
+                                          ref
+                                              .read(startProvider.notifier)
+                                              .state = 1;
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 1;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("POME",
                                             textAlign: TextAlign.center,
@@ -333,7 +382,17 @@ class _HomeState extends State<Home> {
                                               Radius.circular(10))),
                                       child: TextButton(
                                         onPressed: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
+                                          ref
+                                              .read(startProvider.notifier)
+                                              .state = 2;
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 1;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("ERA",
                                             textAlign: TextAlign.center,
@@ -349,7 +408,17 @@ class _HomeState extends State<Home> {
                                               Radius.circular(10))),
                                       child: TextButton(
                                         onPressed: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
+                                          ref
+                                              .read(startProvider.notifier)
+                                              .state = 3;
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 1;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("Assited Boiler Room",
                                             textAlign: TextAlign.center,
@@ -365,7 +434,17 @@ class _HomeState extends State<Home> {
                                               Radius.circular(10))),
                                       child: TextButton(
                                         onPressed: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
+                                          ref
+                                              .read(startProvider.notifier)
+                                              .state = 4;
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 1;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("TBU watch keeper",
                                             textAlign: TextAlign.center,
@@ -381,7 +460,17 @@ class _HomeState extends State<Home> {
                                               Radius.circular(10))),
                                       child: TextButton(
                                         onPressed: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
+                                          ref
+                                              .read(startProvider.notifier)
+                                              .state = 5;
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 1;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("Water tender",
                                             textAlign: TextAlign.center,
@@ -412,7 +501,9 @@ class _HomeState extends State<Home> {
                                             bprechecks = true;
                                             prechecks = false;
                                           });
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const Slide2()));
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 0;
                                         },
                                         child: Text("Boiler Prechecks",
                                             textAlign: TextAlign.center,
@@ -460,6 +551,9 @@ class _HomeState extends State<Home> {
                                               Radius.circular(10))),
                                       child: TextButton(
                                         onPressed: () {
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 1;
                                           setState(() {
                                             shutdown = true;
                                           });
