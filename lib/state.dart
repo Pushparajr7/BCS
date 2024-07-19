@@ -57,6 +57,28 @@ final lottieProvider = StateProvider<Map<String, dynamic>>((ref) => {
       "Spr2low": false,
       "Spr2med": false,
       "Spr2RC": false,
+      "B1_Feed_water_line": {
+        "line1": [
+          [94.38],
+          [0]
+        ],
+        "arrow": [
+          [0],
+          [100]
+        ],
+        "line2": [
+          [287.16],
+          [0]
+        ],
+      },
+      "b1_fuel_differential_pressure": {"value": 5.8},
+      "b1_water_level_regulator": {"value": 15},
+      "b1_steam_pressure_regulator": {"value": 28},
+      "b1_fuel_differential_pressure_regulator":{"value":42},
+      "B1_fuel_pressure_before_boiler":{"value":0.86},
+      "B1_pressure_of_air_in_inner_casing_of_the_boiler":{"value":0.74},
+      "B1_Economizer_outlet_temperature_of_feed_water":{"value":321}
+
     });
 
 class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
@@ -168,24 +190,28 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "Text":
                         "Check communication from ERCR to boiler front and to PDCR And SPDCR.",
                     "Voice": "voice/voice1-15.wav",
-                    "id": 14
+                    "id": 14,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check both drain valves of lower superheater header to bilge and ensure no Water in the super heater. After water drained out from super heater close 2nd pass drain and keep open 3rd pass drain(Steam recirculation valve) Valve.",
                     "Voice": "voice/voice1-16.wav",
-                    "id": 15
+                    "id": 15,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the boiler protection on Control Panel is switched off.",
                     "Voice": "voice/voice1-17.wav",
-                    "id": 16
+                    "id": 16,
+                    "state": false,
                   },
                   {
                     "Text": "Check steam parameters switch is in low regime.",
                     "Voice": "voice/voice1-18.wav",
-                    "id": 17
+                    "id": 17,
+                    "state": false,
                   },
                 ]
               },
@@ -197,28 +223,33 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "Text":
                         "Isolating valve on feed line(Steam Drum inlet valve).",
                     "Voice": "voice/voice2-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Steam and Water isolating cocks of gauge glasses.",
                     "Voice": "voice/voice2-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Impulse valves on condensate vessel on Steam Drum.",
                     "Voice": "voice/voice2-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Isolating valves for gauge glass from Steam Drum.",
                     "Voice": "voice/voice2-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text": "All valves of instrumentation(Pressure gauges).",
                     "Voice": "voice/voice2-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                 ]
               },
@@ -229,32 +260,38 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   {
                     "Text": "Steam Drum and Water Drum blow down valves.",
                     "Voice": "voice/voice3-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Sampling valves from steam drum.",
                     "Voice": "voice/voice3-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text": "Economisers drain valves.",
                     "Voice": "voice/voice3-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Main steam stops pulse valves.",
                     "Voice": "voice/voice3-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text": "Fuel recirculating valve(near mainfold).",
                     "Voice": "voice/voice3-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text": "Wet Storage Tank to boilers isolating valve.",
                     "Voice": "voice/voice3-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                 ]
               },
@@ -266,13 +303,15 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "Text":
                         "Check power supply available for the lighting up blower.",
                     "Voice": "voice/voice4-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Ensure MD Blower(Lighting up Blower) discharge trunking change over flap closed and isolating valve is open to the air casing.",
                     "Voice": "voice/voice4-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                 ]
               },
@@ -284,53 +323,62 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "Text":
                         "Check the fuel level in all fuel service tanks full.",
                     "Voice": "voice/voice5-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the fuel for presence of water and drain it.",
                     "Voice": "voice/voice5-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Ensure suction and discharge fuel filters cleaned.",
                     "Voice": "voice/voice5-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the fuel system and clear from service tank to burner.",
                     "Voice": "voice/voice5-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the fuel Isolantic valves to the burners closed.",
                     "Voice": "voice/voice5-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Select the switch on remote control panel for service and stand by pump. Standby pump should be always on Auto and service pump on Manual.",
                     "Voice": "voice/voice5-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the opening of steam pressure regulator(SPR) 4 to 6% on the remote control panel.",
                     "Voice": "voice/voice5-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
                     "Text": "Open recirculating valve in the fuel system.",
                     "Voice": "voice/voice5-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false,
                   },
                   {
                     "Text": "Check the fuel pressure at burner 14 Bar.",
                     "Voice": "voice/voice5-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false,
                   },
                 ]
               },
@@ -342,34 +390,40 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "Text":
                         "Check the feed system is clear up to feed check valve.",
                     "Voice": "voice/voice6-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the feed water quality for salt contents in the tank.",
                     "Voice": "voice/voice6-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text": "Prepare Ion exchange filter.",
                     "Voice": "voice/voice6-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Prepare feed regulator for putting into use.",
                     "Voice": "voice/voice6-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Prepare Deaerator and fill the water 6.6 tons and clear the system from and to feed service tank and main condenser.",
                     "Voice": "voice/voice6-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text": "Open booster pump suction valves from deaerator.",
                     "Voice": "voice/voice6-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                 ]
               },
@@ -381,68 +435,81 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "Text":
                         "High pressure air system for charging of TBU protection system.",
                     "Voice": "voice/voice7-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Working water system for Autonatics.",
                     "Voice": "voice/voice7-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Blowdown drain system of Stream drum, Water drum and Lower super heater.",
                     "Voice": "voice/voice7-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Cooling water system.",
                     "Voice": "voice/voice7-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text": "LUB oil system.",
                     "Voice": "voice/voice7-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text": "Protection and control system for TBU.",
                     "Voice": "voice/voice7-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text": "Chemical dosing system for boilers.",
                     "Voice": "voice/voice7-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
                     "Text": "Sampling system of the boilers.",
                     "Voice": "voice/voice7-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false,
                   },
                   {
                     "Text": "High pressure to Low pressure SAT. steam reducer.",
                     "Voice": "voice/voice7-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false,
                   },
                   {
                     "Text": "Reduction cooling unit.",
                     "Voice": "voice/voice7-10.wav",
-                    "id": 9
+                    "id": 9,
+                    "state": false,
                   },
                   {
                     "Text": "Exhaust steam system.",
                     "Voice": "voice/voice7-11.wav",
-                    "id": 10
+                    "id": 10,
+                    "state": false,
                   },
                   {
                     "Text": "LUB oil system.",
                     "Voice": "voice/voice7-12.wav",
-                    "id": 11
+                    "id": 11,
+                    "state": false,
                   },
                   {
                     "Text": "Steam system(High pressure & Auxiliary) supply.",
                     "Voice": "voice/voice7-13.wav",
-                    "id": 12
+                    "id": 12,
+                    "state": false,
                   },
                 ]
               },
@@ -882,135 +949,152 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                 "steps": [
                   {
                     "Text":
-                        "Before starting the boiler, the values of the regulators are to be set as follows:",
-                    "t1": "SPR  - 6 to 85",
-                    "t2": "FPDR - 20 to 25",
-                    "t3": "FPR  - 50",
-                    "t4": "WLR  - 0",
-                    "t5": "AFRR - 25 to 35",
+                        "Before starting the boiler, the values of the regulators are to be set as follows:\nSPR  - 6 to 85,\nFPDR - 20 to 25,\nFPR  - 50,\nWLR  - 0,\nAFRR - 25 to 35",
                     "Voice": "voice/cold1-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Open registers of no.1 and no.2 burners fully.",
                     "Voice": "voice/cold1-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Start motor driven blower and direct to air casing.",
                     "Voice": "voice/cold1-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Purge the furnace for 5 minutes prior lighting.",
                     "Voice": "voice/cold1-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the water level in gauge glass and should not be less than +70 mm.",
                     "Voice": "voice/cold1-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text":
                         "After ventilation, a lamp flows indicating 'Ventilation over' locally and on the VDU in ERCR.",
                     "Voice": "voice/cold1-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Change the no.1 burner register position to lighting up mode and close no.2 register check the fuel pressure 14 Bar at the burners by using fuel recirculating valve. Push the ignition button on the transformer for 2 seconds open the fuel supply to burners simultaneously and close the fuel recirculating valve to maintain fuel pressure at the burner 14 Bar. The register should be in lighting up position.",
                     "Voice": "voice/cold1-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
                     "Text":
                         "After flame ignition, open the register no.1 fully.(Indication of no flare goes off).{In case of ignition failure, close the fuel supply valve to the no.1 burner and open the recirculating valve. The fuel supply valve should not be kept open more than 8 sec. Other rise fuel may accumulate in furnace. Then ventilate the furnace for 5 minutes and again start the lighting up procedure.",
                     "Voice": "voice/cold1-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false,
                   },
                   {
                     "Text":
                         "After ignition, set the fuel pressure before burner 14 Bar using fuel recirculating valve at the fuel manifold.",
                     "Voice": "voice/cold1-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Raise the pressure in boiler up to 35 Bar, stop the boiler and close lower super heater recirculaing valve.",
                     "Voice": "voice/cold1-10.wav",
-                    "id": 9
+                    "id": 9,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Before shutting down the boiler during cold flash up, ensure that main steam stop valve is opened by crack and steam inlet system to TBU, feed pump, High pressure to Low pressure saturated steam reducer and atomizing steam system is warmed through. Do not open atomizing steam to burners initially. Open atomizing steam to burners just before light up the burner to avoid the torch igniter electrode to get wet and may lead to failure of igniter.",
                     "Voice": "voice/voice1-11.wav",
-                    "id": 10
+                    "id": 10,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Replace the burner with steam mechanical(STANDARD).",
                     "Voice": "voice/cold1-12.wav",
-                    "id": 11
+                    "id": 11,
+                    "state": false,
                   },
                   {
                     "Text": "Open main steam stop valve fully.",
                     "Voice": "voice/cold1-13.wav",
-                    "id": 12
+                    "id": 12,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Start TBU super heater recirculating valve remain closed.",
                     "Voice": "voice/cold1-14.wav",
-                    "id": 13
+                    "id": 13,
+                    "state": false,
                   },
                   {
                     "Text": "Purged the boiler using TBU.",
                     "Voice": "voice/cold1-15.wav",
-                    "id": 14
+                    "id": 14,
+                    "state": false,
                   },
                   {
                     "Text":
                         "RPM of the TBU at this stage is minimum 1000 to 1200 RPM.",
                     "Voice": "voice/cold1-16.wav",
-                    "id": 15
+                    "id": 15,
+                    "state": false,
                   },
                   {
                     "Text": "Ignite no.1 burner using 2 Bar of fuel pressure.",
                     "Voice": "voice/cold1-17.wav",
-                    "id": 16
+                    "id": 16,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Ignite no.2 burner, raise the boiler pressure by maintaining 2 Bar fuel pressure on both the burners using fuel recirculating valve.",
                     "Voice": "voice/cold1-18.wav",
-                    "id": 17
+                    "id": 17,
+                    "state": false,
                   },
                   {
                     "Text":
                         "All pulse valves on the lower super heater and steam drum are to be opened when the boiler pressure reaches 45 Bar.",
                     "Voice": "voice/cold1-19.wav",
-                    "id": 18
+                    "id": 18,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Open steam to CFBP pump(feed pump is to be started according to the situation and boiler water level).",
                     "Voice": "voice/cold1-20.wav",
-                    "id": 19
+                    "id": 19,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Start TD fuel pump and take into use and keep motor driven fuel pump on standby mode.",
                     "Voice": "voice/cold1-21.wav",
-                    "id": 20
+                    "id": 20,
+                    "state": false,
                   },
                   {
                     "Text":
                         "When pressure reaches 45 Bar, switch 'ON' boiler protection.",
                     "Voice": "voice/cold1-22.wav",
-                    "id": 21
+                    "id": 21,
+                    "state": false,
                   },
                 ]
               },
@@ -1021,50 +1105,59 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   {
                     "Text": "Steam drum pressure.",
                     "Voice": "voice/cold2-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Water level in the gauge glass.",
                     "Voice": "voice/cold2-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text": "Super heater outlet temperature.",
                     "Voice": "voice/cold2-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Feed pump dicharge pressure.",
                     "Voice": "voice/cold2-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text": "Fuel pump dicharge pressure.",
                     "Voice": "voice/cold2-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text": "Fuel pressure before burner should be 1.5 Bar.",
                     "Voice": "voice/cold2-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Air pressure inside the casing 300 mm water column.",
                     "Voice": "voice/cold2-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
                     "Text":
                         "RPM of turbo blower 1800 to 2200 (When second burner in use).",
                     "Voice": "voice/cold2-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false,
                   },
                   {
                     "Text":
                         "The pressure across the nozzle block of TBU should be 0.01 to 0.013.",
                     "Voice": "voice/cold2-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false,
                   },
                 ]
               },
@@ -1075,101 +1168,118 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   {
                     "Text": "Ensure DA is running and taken on load.",
                     "Voice": "voice/voice1-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Ensure the Funnel Cover is off.",
                     "Voice": "voice/voice1-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the boiler water level is -50 mm, if in wet storage condition run down the boiler to -50 mm.",
                     "Voice": "voice/cold3-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the air cocks open on steam drum and upper super heater header.",
                     "Voice": "voice/voice1-5.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the condensate vessel on steam drum filled, if the boiler was not in wet storage condition earlier.",
                     "Voice": "voice/voice1-6.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the boiler room lighting, emergency lighting for the compartment and for the gauge glass.",
                     "Voice": "voice/cold3-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the power supply available for all motor driven pumps and ERCR panel.",
                     "Voice": "voice/cold3-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Inspect the boiler air casing by opening air casing drain plugs for presence of fuel and water.",
                     "Voice": "voice/cold3-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Ensure all standard burners are cleaned and positioned.",
                     "Voice": "voice/cold3-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the spare burners and spare gauge glasses available in the compartment.",
                     "Voice": "voice/cold3-10.wav",
-                    "id": 9
+                    "id": 9,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Reset quick closing mechanism of all servo drives of stop valves (Main switch valve, Main steam stop valve, TBU stop valve, SAT steam stop valve and fuel QCV).",
                     "Voice": "voice/voice1-13.wav",
-                    "id": 10
+                    "id": 10,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the operational readiness of portable and fixed firefighting arrangements.",
                     "Voice": "voice/voice1-3.wav",
-                    "id": 11
+                    "id": 11,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check if working water is available (10 Bar) and if not, start the pumps.",
                     "Voice": "voice/voice1-14.wav",
-                    "id": 12
+                    "id": 12,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check communication from ERCR to boiler front and to PDCR/SPDCR.",
                     "Voice": "voice/cold3-14.wav",
-                    "id": 13
+                    "id": 13,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check both drain valves of lower super heater header to boiler and ensure no water in the super heater. After water drained out from super heater close 2nd pass drain and keep open 3rd pass drain valve(Steam recirculation valve).",
                     "Voice": "voice/cold3-15.wav",
-                    "id": 14
+                    "id": 14,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the boiler protection on control panel switched 'Off'.",
                     "Voice": "voice/cold3-16.wav",
-                    "id": 15
+                    "id": 15,
+                    "state": false,
                   },
                   {
                     "Text": "Check steam parameters switch is in low regime.",
                     "Voice": "voice/cold3-17.wav",
-                    "id": 16
+                    "id": 16,
+                    "state": false,
                   },
                 ]
               },
@@ -1181,58 +1291,69 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "Text":
                         "Check the operation of registers(3 to 6) for free movement by using hydraulic manipulators locally.",
                     "Voice": "voice/cold4-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the operation of register(3 to 6) for free movement using SPR from ERCR.",
                     "Voice": "voice/cold4-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
-                    "Text": "Check the operation of register(1 and 2) for free movement manually.",
-                    "Voice": "voice/cold-3.wav",
-                    "id": 2
+                    "Text":
+                        "Check the operation of register(1 and 2) for free movement manually.",
+                    "Voice": "voice/cold4-3.wav",
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Ensure all fuel system valves of registers fully shut.",
                     "Voice": "voice/cold4-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
-                    "Text":
-                        "Ensure all steam atomizing valves are fully shut.",
+                    "Text": "Ensure all steam atomizing valves are fully shut.",
                     "Voice": "voice/cold4-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
+                  },
+                  {
+                    "Text": "Open drain valves on atomizing steam system.",
+                    "Voice": "voice/cold4-6.wav",
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text":
-                        "Open drain valves on atomizing steam system.",
-                    "Voice": "voice/cold4-6.wav",
-                    "id": 5
-                  },
-                  {
-                    "Text": "Check power supply available for the control and protection system.",
+                        "Check power supply available for the control and protection system.",
                     "Voice": "voice/cold4-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
-                    "Text": "Check working water is availble for control and protection system.",
+                    "Text":
+                        "Check working water is availble for control and protection system.",
                     "Voice": "voice/cold4-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false,
                   },
                   {
-                    "Text": "Check the burners and registers operating automatically and check the visual indication showing open close positions on the signalng panel.",
+                    "Text":
+                        "Check the burners and registers operating automatically and check the visual indication showing open close positions on the signalng panel.",
                     "Voice": "voice/cold4-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false,
                   },
                   {
                     "Text": "Check all system valves closed.",
                     "Voice": "voice/cold4-10.wav",
-                    "id": 9
+                    "id": 9,
+                    "state": false,
                   },
-                
                 ]
               },
               {
@@ -1242,39 +1363,46 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   {
                     "Text": "Isolating valve on feed line.",
                     "Voice": "voice/cold5-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Steam and water isolating cocks of gauge glasses.",
                     "Voice": "voice/cold5-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Impulse valves on condensate vessel on steam drum.",
                     "Voice": "voice/cold5-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Isolating valves for gauge glass from steam drum.",
                     "Voice": "voice/cold5-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text": "All valves of instrumentation (Pressure gauges).",
                     "Voice": "voice/cold5-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Air cocks of steam drum and upper super heater header.",
                     "Voice": "voice/cold5-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text": "Lower super heater header drain valves.",
                     "Voice": "voice/cold5-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                 ]
               },
@@ -1285,28 +1413,32 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   {
                     "Text": "Steam drum and water drum blow down valves.",
                     "Voice": "voice/cold6-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Sampling valves from steam drum.",
                     "Voice": "voice/cold6-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
-        
                   {
                     "Text": "Main steam stop pulse valves.",
                     "Voice": "voice/cold6-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Fuel recirculating valve.",
                     "Voice": "voice/cold6-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text": "Set storage tank to boilers isolating valve.",
                     "Voice": "voice/cold6-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                 ]
               },
@@ -1317,139 +1449,162 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   {
                     "Text": "Protection and control system for TBU.",
                     "Voice": "voice/cold7-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Fuel system for boilers.",
                     "Voice": "voice/cold7-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text": "Feed system.",
                     "Voice": "voice/cold7-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text": "Working water system for automatics.",
                     "Voice": "voice/cold7-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text": "LUB oil system.",
                     "Voice": "voice/cold7-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text":
                         "High pressure air system for charging of TBU protection system.",
                     "Voice": "voice/cold7-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Blow down/drain system of steam drum, water drum and lower super heater.",
                     "Voice": "voice/cold7-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
                     "Text": "Cooling water system.",
                     "Voice": "voice/cold7-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false,
                   },
-                
                   {
                     "Text": "Feed transfer system.",
                     "Voice": "voice/cold7-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false,
                   },
                   {
                     "Text": "Sampling system of the boilers.",
                     "Voice": "voice/cold7-10.wav",
-                    "id": 9
+                    "id": 9,
+                    "state": false,
                   },
                 ]
               },
               {
-                "Title": "SYSTEM READINESS (TBU)",
+                "Title": "SYSTEM READINESS(TBU)",
                 "id": 8,
                 "steps": [
                   {
                     "Text": "Ensure working water is available (08 to 10 Bar).",
                     "Voice": "voice/cold8-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false,
                   },
                   {
                     "Text": "Ensure LUB oil supply available to TBU.",
                     "Voice": "voice/cold8-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the LUB oil pressure before LUB oil interlocking valve of TBU (Minimum 0.6 Bar, working pressure 08 to 10 Bar).",
                     "Voice": "voice/cold8-3.wav",
-                    "id": 2
+                    "id": 2,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Check the interlocking device for operation. Check anti-surge flap manually for free operation.",
                     "Voice": "voice/cold8-4.wav",
-                    "id": 3
+                    "id": 3,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Open the 5-inch no. nozzle box drain valves and the gland sealing valves.",
                     "Voice": "voice/cold8-5.wav",
-                    "id": 4
+                    "id": 4,
+                    "state": false,
                   },
                   {
                     "Text": "Change TBU into manual mode.",
                     "Voice": "voice/cold8-6.wav",
-                    "id": 5
+                    "id": 5,
+                    "state": false,
                   },
                   {
                     "Text":
                         "Turn TBU shaft manually and disengage shaft turing device.",
                     "Voice": "voice/cold8-7.wav",
-                    "id": 6
+                    "id": 6,
+                    "state": false,
                   },
                   {
                     "Text": "Open air regulating flap 0 to 10 at TBU.",
                     "Voice": "voice/cold8-8.wav",
-                    "id": 7
+                    "id": 7,
+                    "state": false
                   },
                   {
                     "Text": "Reset QCV on TBU, fuel and main steam stop value.",
                     "Voice": "voice/cold8-9.wav",
-                    "id": 8
+                    "id": 8,
+                    "state": false
                   },
                   {
                     "Text":
                         "Put fly wheel to zero position and open working water by pass valve.",
                     "Voice": "voice/cold8-10.wav",
-                    "id": 9
+                    "id": 9,
+                    "state": false
                   },
                   {
                     "Text":
                         "Start TBU using steam from other unit. The air casing pressure should be 300 mm water column(using steam stop valve or air flap).",
                     "Voice": "voice/cold8-11.wav",
-                    "id": 10
+                    "id": 10,
+                    "state": false
                   },
                   {
                     "Text": "The RPM of TBU should be 1200 to 1800.",
                     "Voice": "voice/cold8-12.wav",
-                    "id": 11
+                    "id": 11,
+                    "state": false
                   },
                   {
                     "Text":
                         "The pressure drop at nozzle box of gas turbine should be 0.012 to 0.013 Bar.",
                     "Voice": "voice/cold8-13.wav",
-                    "id": 12
+                    "id": 12,
+                    "state": false
                   },
                   {
                     "Text":
                         "Check air pressure in air bottles of protection system(If air pressure in the air bottle is below 150 Bar, charge the bottle up to 180 to 200 Bar).",
                     "Voice": "voice/cold8-14.wav",
-                    "id": 13
+                    "id": 13,
+                    "state": false
                   },
                 ]
               },
@@ -1458,8 +1613,7 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                 "id": 9,
                 "steps": [
                   {
-                    "Text":
-                        "Check the fuel level in all service tanks full.",
+                    "Text": "Check the fuel level in all service tanks full.",
                     "Voice": "voice/cold9-1.wav",
                     "id": 0,
                     "state": false
@@ -1472,34 +1626,36 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "state": false
                   },
                   {
-                    "Text": "Check the opening of quick closing valve.",
+                    "Text":
+                        "Check the suction and discharge strainers are cleaned.",
                     "Voice": "voice/cold9-3.wav",
                     "id": 2,
                     "state": false
                   },
                   {
                     "Text":
-                        "Check the opening of steam pressure regulator (SPR) 6 to 8% on the remote control panel.",
+                        "Check the fuel system is clear from service tank to burner.",
                     "Voice": "voice/cold9-4.wav",
                     "id": 3,
                     "state": false
                   },
                   {
-                    "Text": "Open recirculating valve in the fuel system.",
+                    "Text":
+                        "Check the fuel isolating valves to the burners closed.",
                     "Voice": "voice/cold9-5.wav",
                     "id": 4,
                     "state": false
                   },
                   {
                     "Text":
-                        "Start TD fuel pump and set the differential pressure of fuel 4 Bar at FPDR(Fuel Pressure Differential Regulator) on the remote control panel.",
+                        "Check the stream drain valves on TD fuel pump open.",
                     "Voice": "voice/cold9-6.wav",
                     "id": 5,
                     "state": false
                   },
                   {
                     "Text":
-                        "TD fuel pump must be turned manually and check for its free rotation.",
+                        "Fuel pumps must be turned manually and check for its free rotation.",
                     "Voice": "voice/cold9-7.wav",
                     "id": 6,
                     "state": false
@@ -1511,46 +1667,87 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "id": 7,
                     "state": false
                   },
+                  {
+                    "Text":
+                        "Select the switch on remote control panel for service and standby pump. Standby pump should be always on auto and service pump on manual.",
+                    "Voice": "voice/cold9-9.wav",
+                    "id": 8,
+                    "state": false
+                  },
+                  {
+                    "Text": "Check the opening of quick closing valve.",
+                    "Voice": "voice/cold9-10.wav",
+                    "id": 9,
+                    "state": false
+                  },
+                  {
+                    "Text":
+                        "Check the opening of steam pressure regulator(SPR) 6 to 8% on the remote control panel.",
+                    "Voice": "voice/cold9-11.wav",
+                    "id": 10,
+                    "state": false
+                  },
+                  {
+                    "Text": "Open recirculating valve in the fuel system.",
+                    "Voice": "voice/cold9-12.wav",
+                    "id": 11,
+                    "state": false
+                  },
+                  {
+                    "Text": "Start fuel pump.",
+                    "Voice": "voice/cold9-13.wav",
+                    "id": 12,
+                    "state": false
+                  },
+                  {
+                    "Text":
+                        "Set the dfferential pressure of fuel 4 Bar at FPDR(Fuel Pressure Differential Regulator) on the remote control panel.",
+                    "Voice": "voice/cold9-14.wav",
+                    "id": 13,
+                    "state": false
+                  },
                 ]
               },
               {
                 "Title": "FEED SYSTEM",
-                "id": 16,
+                "id": 10,
                 "steps": [
                   {
                     "Text":
                         "Check the feed system is clear up to feed check valve.",
                     "Voice": "voice/voice6-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false
                   },
                   {
                     "Text":
                         "Check the feed water quality for salt contents in the tank.",
                     "Voice": "voice/voice6-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false
                   },
                   {
                     "Text":
                         "Prepare CFBP pump and set one pump as main and others by from ERCR.",
-                    "Voice": "voice/voice17-3.wav",
+                    "Voice": "voice/cold10-3.wav",
                     "id": 2,
                     "state": false
                   },
                   {
                     "Text": "Prepare exchange filter.",
-                    "Voice": "voice/voice17-4.wav",
+                    "Voice": "voice/cold10-4.wav",
                     "id": 3,
                     "state": false
                   },
                   {
                     "Text": "Prepare Deaerator 2 hours prior flash up.",
-                    "Voice": "voice/voice17-5.wav",
+                    "Voice": "voice/cold10-5.wav",
                     "id": 4,
                     "state": false
                   },
                   {
                     "Text": "Prepare feed regulator for putting into use.",
-                    "Voice": "voice/voice17-6.wav",
+                    "Voice": "voice/cold10-6.wav",
                     "id": 5,
                     "state": false
                   },
@@ -1558,17 +1755,19 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
               },
               {
                 "Title": "PREPARATION OF WORKING WATER SYSTEM FOR AUTOMATICS",
-                "id": 16,
+                "id": 11,
                 "steps": [
                   {
                     "Text": "Check the freeness of the pumps.",
                     "Voice": "voice/cold11-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false
                   },
                   {
                     "Text": "Set one pump as main and other as standby.",
                     "Voice": "voice/cold11-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false
                   },
                   {
                     "Text": "Check the control valves of the system.",
@@ -1593,17 +1792,19 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
               },
               {
                 "Title": "PREPARATION OF LUB OIL SYSTEM",
-                "id": 16,
+                "id": 12,
                 "steps": [
                   {
                     "Text": "Check lub oil tank oil",
                     "Voice": "voice/cold12-1.wav",
-                    "id": 0
+                    "id": 0,
+                    "state": false
                   },
                   {
                     "Text": "Check lub oil for salinity.",
                     "Voice": "voice/cold12-2.wav",
-                    "id": 1
+                    "id": 1,
+                    "state": false
                   },
                   {
                     "Text": "Check MD lub oil pump for readiness.",

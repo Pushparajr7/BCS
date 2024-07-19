@@ -519,7 +519,14 @@ class _HomeState extends ConsumerState<Home> {
                                               Radius.circular(10))),
                                       child: TextButton(
                                         onPressed: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 2;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("Boiler Cold Flashup",
                                             textAlign: TextAlign.center,
@@ -535,7 +542,17 @@ class _HomeState extends ConsumerState<Home> {
                                               Radius.circular(10))),
                                       child: TextButton(
                                         onPressed: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
+                                          ref
+                                              .read(prechecksProvider.notifier)
+                                              .state = 2;
+                                          ref
+                                              .read(startProvider.notifier)
+                                              .state = 2;
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Slide2()));
                                         },
                                         child: Text("Boiler Hot Flashup",
                                             textAlign: TextAlign.center,
@@ -557,7 +574,6 @@ class _HomeState extends ConsumerState<Home> {
                                           setState(() {
                                             shutdown = true;
                                           });
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>const StartStop()));
                                         },
                                         child: Text("Stop Procedure",
                                             textAlign: TextAlign.center,
