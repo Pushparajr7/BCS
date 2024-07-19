@@ -59,26 +59,81 @@ final lottieProvider = StateProvider<Map<String, dynamic>>((ref) => {
       "Spr2RC": false,
       "B1_Feed_water_line": {
         "line1": [
-          [94.38],
-          [0]
+          [94.38], // 0 s
+          [0] // 170 s
         ],
         "arrow": [
-          [0],
-          [100]
+          [0], // 0 s
+          [100] // 350 s
         ],
         "line2": [
-          [287.16],
-          [0]
+          [287.16], // 170 s
+          [0] // 350 s
+        ],
+        "line3": [
+          [249], // 90 s
+          [0] // 190 s
         ],
       },
       "b1_fuel_differential_pressure": {"value": 5.8},
       "b1_water_level_regulator": {"value": 15},
       "b1_steam_pressure_regulator": {"value": 28},
-      "b1_fuel_differential_pressure_regulator":{"value":42},
-      "B1_fuel_pressure_before_boiler":{"value":0.86},
-      "B1_pressure_of_air_in_inner_casing_of_the_boiler":{"value":0.74},
-      "B1_Economizer_outlet_temperature_of_feed_water":{"value":321}
-
+      "b1_fuel_differential_pressure_regulator": {"value": 42},
+      "B1_fuel_pressure_before_boiler": {"value": 0.86},
+      "B1_pressure_of_air_in_inner_casing_of_the_boiler": {"value": 0.74},
+      "B1_Economizer_outlet_temperature_of_feed_water": {"value": 321},
+      "B1_flame_lumens": {"value": 0.68},
+      "B1_water_level": {"value": 140},
+      "B1_register": {
+        "color": [
+          [0.933333, 0.929412, 0.866667],
+          [0.054902, 0.639216, 0.054902]
+        ],
+      },
+      "b1_exhaust_gas_line": {
+        "line": [
+          [
+            [153, 297.551],
+            [153, 297.551],
+            [153, 297.525]
+          ],
+          [
+            [153, 297.551],
+            [142.088, 271.5],
+            [141.982, 271.5]
+          ],
+          [
+            [153, 297.551],
+            [142.088, 271.5],
+            [141.982, 137.5]
+          ]
+        ]
+      },
+      "B2_Fuel_line_1": {
+        "line1": [
+          [22.3], // 0 s
+          [0] // 50 s
+        ],
+        "line2": [
+          [20.55], // 50 s
+          [0] // 100 s
+        ],
+        "line3": [
+          [249], // 0 s
+          [0] // 60 s
+        ],
+        "line4": [
+          [20.55], // 50 s
+          [0] // 100 s
+        ],
+        "line5": [
+          [20.55], // 50 s
+          [0] // 100 s
+        ],
+      },
+      "B1_exhaust_temperature": {"value": 230},
+      "B1_TBU_RPM": {"value": 3000},
+      "b2_water_level_regulator": {"value": 3.5}
     });
 
 class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
