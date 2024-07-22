@@ -5,13 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:window_manager/window_manager.dart';
 
-
-void main() async{
+void main() async {
   runApp(const ProviderScope(child: MyApp()));
   // windowManager.waitUntilReadyToShow().then((_) async{
   //     await windowManager.setAsFrameless();
   // });
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -20,38 +20,30 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-      
-      ),
+      theme: ThemeData(),
       home: const SplashScreen(),
     );
   }
 }
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
- State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  
-
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Image.asset('assets/images/vikaramaditya.png'),
       backgroundColor: Colors.black,
-      nextScreen:const SplashScreen1(),
+      nextScreen: const SplashScreen1(),
       splashTransition: SplashTransition.fadeTransition,
     );
   }
 }
-
-
-
 
 class SplashScreen1 extends StatelessWidget {
   const SplashScreen1({super.key});
@@ -76,12 +68,9 @@ class SplashScreen1 extends StatelessWidget {
       backgroundColor: Colors.black,
       nextScreen: const SplashScreen2(),
       splashTransition: SplashTransition.fadeTransition,
-
     );
   }
 }
-
-
 
 class SplashScreen2 extends StatelessWidget {
   const SplashScreen2({super.key});
@@ -90,13 +79,20 @@ class SplashScreen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splash: Center(child: Text("Boiler Control System",style: GoogleFonts.poppins(textStyle: const TextStyle(color: Colors.white,fontSize: 60,fontWeight: FontWeight.bold),),),),
+      splash: Center(
+        child: Text(
+          "Boiler Control System",
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 60, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
       backgroundColor: Colors.black,
       nextScreen: const Home(),
       // nextScreen: const Slide2(),
       // nextScreen: const Slide1(),
       splashTransition: SplashTransition.fadeTransition,
-
     );
   }
 }

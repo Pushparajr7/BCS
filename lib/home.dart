@@ -323,7 +323,7 @@ class _HomeState extends ConsumerState<Home> {
                                       child: TextButton(
                                         onPressed: () {
                                           setState(() {
-                                            bprechecks = true;
+                                            // bprechecks = true;
                                             prechecks = false;
                                           });
                                           ref
@@ -353,7 +353,7 @@ class _HomeState extends ConsumerState<Home> {
                                       child: TextButton(
                                         onPressed: () {
                                           setState(() {
-                                            bprechecks = true;
+                                            // bprechecks = true;
                                             prechecks = false;
                                           });
                                           ref

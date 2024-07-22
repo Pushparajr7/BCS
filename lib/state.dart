@@ -58,6 +58,7 @@ final lottieProvider = StateProvider<Map<String, dynamic>>((ref) => {
       "Spr2med": false,
       "Spr2RC": false,
       "B1_Feed_water_line": {
+        // dark blue line
         "line1": [
           [94.38], // 0 s
           [0] // 170 s
@@ -74,16 +75,33 @@ final lottieProvider = StateProvider<Map<String, dynamic>>((ref) => {
           [249], // 90 s
           [0] // 190 s
         ],
+        "line4": [
+          [93.69], // 0 s
+          [0] // 170 s
+        ],
+        "line5": [
+          [287.16], // 170 s
+          [0] // 350 s
+        ],
       },
       "b1_fuel_differential_pressure": {"value": 5.8},
       "b1_water_level_regulator": {"value": 15},
-      "b1_steam_pressure_regulator": {"value": 28},
-      "b1_fuel_differential_pressure_regulator": {"value": 42},
-      "B1_fuel_pressure_before_boiler": {"value": 0.86},
+      "b1_steam_pressure_regulator": {"value": 6},
+      "b1_fuel_differential_pressure_regulator": {"value": 23},
+      "B1_fuel_pressure_before_boiler": {"value": 0.14},
       "B1_pressure_of_air_in_inner_casing_of_the_boiler": {"value": 0.74},
       "B1_Economizer_outlet_temperature_of_feed_water": {"value": 321},
       "B1_flame_lumens": {"value": 0.68},
-      "B1_water_level": {"value": 140},
+      "B1_water_level": {
+        "value": 140,
+        "bar": [
+          [0, 0.266664],
+          [62.12342, 0.266664],
+          [62.12342, 8.266667],
+          [0, 8.266667],
+          [0, 0.266664]
+        ]
+      },
       "B1_register": {
         "color": [
           [0.933333, 0.929412, 0.866667],
@@ -123,8 +141,12 @@ final lottieProvider = StateProvider<Map<String, dynamic>>((ref) => {
           [0] // 60 s
         ],
         "line4": [
-          [20.55], // 50 s
+          [11.27], // 60 s
           [0] // 100 s
+        ],
+        "arrow": [
+          [0],
+          [100]
         ],
         "line5": [
           [20.55], // 50 s
@@ -418,21 +440,28 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   },
                   {
                     "Text":
+                        "Stand by pump should always be on auto and the service pump on manual.",
+                    "Voice": "voice/voice5-10.wav",
+                    "id": 6,
+                    "state": false,
+                  },
+                  {
+                    "Text":
                         "Check the opening of steam pressure regulator(SPR) 4 to 6% on the remote control panel.",
                     "Voice": "voice/voice5-7.wav",
-                    "id": 6,
+                    "id": 7,
                     "state": false,
                   },
                   {
                     "Text": "Open recirculating valve in the fuel system.",
                     "Voice": "voice/voice5-8.wav",
-                    "id": 7,
+                    "id": 8,
                     "state": false,
                   },
                   {
                     "Text": "Check the fuel pressure at burner 14 Bar.",
                     "Voice": "voice/voice5-9.wav",
-                    "id": 8,
+                    "id": 9,
                     "state": false,
                   },
                 ]
@@ -1051,104 +1080,152 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                   },
                   {
                     "Text":
-                        "After flame ignition, open the register no.1 fully.(Indication of no flare goes off).{In case of ignition failure, close the fuel supply valve to the no.1 burner and open the recirculating valve. The fuel supply valve should not be kept open more than 8 sec. Other rise fuel may accumulate in furnace. Then ventilate the furnace for 5 minutes and again start the lighting up procedure.",
-                    "Voice": "voice/cold1-8.wav",
+                        "Check the fuel pressure 14 Bar at the burners by using fuel recirculating valve.",
+                    "Voice": "voice/cold1-23.wav",
                     "id": 7,
+                    "state": false,
+                  },
+                  {
+                    "Text":
+                        "Push the ignition button on the transformer for 2 seconds.",
+                    "Voice": "voice/cold1-24.wav",
+                    "id": 8,
+                    "state": false,
+                  },
+                  {
+                    "Text":
+                        "Open the fuel supply to burners simultaeously and close the fuel recirculating valve to maintain fuel pressure at the burner 14 Bar.",
+                    "Voice": "voice/cold1-25.wav",
+                    "id": 9,
+                    "state": false,
+                  },
+                  {
+                    "Text": "The register should be in lighting up position.",
+                    "Voice": "voice/cold1-26.wav",
+                    "id": 10,
+                    "state": false,
+                  },
+                  {
+                    "Text":
+                        "After flame ignition, open the register no.1 fully.(Indication of no flare goes off).{In case of ignition failure, close the fuel supply valve to the no.1 burner and open the recirculating valve.",
+                    "Voice": "voice/cold1-8.wav",
+                    "id": 11,
+                    "state": false,
+                  },
+                  {
+                    "Text":
+                        "The fuel supply valve should not be kept open more than 8 sec. Otherwise, fuel may accumulate in furnace.",
+                    "Voice": "voice/cold1-27.wav",
+                    "id": 12,
+                    "state": false,
+                  },
+                  {
+                    "Text":
+                        "Then ventilate the furnace or 5 minutes and again start the lighting up procedure.",
+                    "Voice": "voice/cold1-28.wav",
+                    "id": 13,
                     "state": false,
                   },
                   {
                     "Text":
                         "After ignition, set the fuel pressure before burner 14 Bar using fuel recirculating valve at the fuel manifold.",
                     "Voice": "voice/cold1-9.wav",
-                    "id": 8,
+                    "id": 14,
                     "state": false,
                   },
                   {
                     "Text":
                         "Raise the pressure in boiler up to 35 Bar, stop the boiler and close lower super heater recirculaing valve.",
                     "Voice": "voice/cold1-10.wav",
-                    "id": 9,
+                    "id": 15,
                     "state": false,
                   },
                   {
                     "Text":
                         "Before shutting down the boiler during cold flash up, ensure that main steam stop valve is opened by crack and steam inlet system to TBU, feed pump, High pressure to Low pressure saturated steam reducer and atomizing steam system is warmed through. Do not open atomizing steam to burners initially. Open atomizing steam to burners just before light up the burner to avoid the torch igniter electrode to get wet and may lead to failure of igniter.",
-                    "Voice": "voice/voice1-11.wav",
-                    "id": 10,
+                    "Voice": "voice/cold1-11.wav",
+                    "id": 16,
+                    "state": false,
+                  },
+                  {
+                    "Text":
+                        "Do not open atomizing steam to burners initially. Open atomizing steam to burners just before light up the burner to avoid the torch igniter electrode to get wet and may lead to failure of igniter.",
+                    "Voice": "voice/cold1-29.wav",
+                    "id": 17,
                     "state": false,
                   },
                   {
                     "Text":
                         "Replace the burner with steam mechanical(STANDARD).",
                     "Voice": "voice/cold1-12.wav",
-                    "id": 11,
+                    "id": 18,
                     "state": false,
                   },
                   {
                     "Text": "Open main steam stop valve fully.",
                     "Voice": "voice/cold1-13.wav",
-                    "id": 12,
+                    "id": 19,
                     "state": false,
                   },
                   {
                     "Text":
                         "Start TBU super heater recirculating valve remain closed.",
                     "Voice": "voice/cold1-14.wav",
-                    "id": 13,
+                    "id": 20,
                     "state": false,
                   },
                   {
                     "Text": "Purged the boiler using TBU.",
                     "Voice": "voice/cold1-15.wav",
-                    "id": 14,
+                    "id": 21,
                     "state": false,
                   },
                   {
                     "Text":
                         "RPM of the TBU at this stage is minimum 1000 to 1200 RPM.",
                     "Voice": "voice/cold1-16.wav",
-                    "id": 15,
+                    "id": 22,
                     "state": false,
                   },
                   {
                     "Text": "Ignite no.1 burner using 2 Bar of fuel pressure.",
                     "Voice": "voice/cold1-17.wav",
-                    "id": 16,
+                    "id": 23,
                     "state": false,
                   },
                   {
                     "Text":
                         "Ignite no.2 burner, raise the boiler pressure by maintaining 2 Bar fuel pressure on both the burners using fuel recirculating valve.",
                     "Voice": "voice/cold1-18.wav",
-                    "id": 17,
+                    "id": 24,
                     "state": false,
                   },
                   {
                     "Text":
                         "All pulse valves on the lower super heater and steam drum are to be opened when the boiler pressure reaches 45 Bar.",
                     "Voice": "voice/cold1-19.wav",
-                    "id": 18,
+                    "id": 25,
                     "state": false,
                   },
                   {
                     "Text":
                         "Open steam to CFBP pump(feed pump is to be started according to the situation and boiler water level).",
                     "Voice": "voice/cold1-20.wav",
-                    "id": 19,
+                    "id": 26,
                     "state": false,
                   },
                   {
                     "Text":
                         "Start TD fuel pump and take into use and keep motor driven fuel pump on standby mode.",
                     "Voice": "voice/cold1-21.wav",
-                    "id": 20,
+                    "id": 27,
                     "state": false,
                   },
                   {
                     "Text":
                         "When pressure reaches 45 Bar, switch 'ON' boiler protection.",
                     "Voice": "voice/cold1-22.wav",
-                    "id": 21,
+                    "id": 28,
                     "state": false,
                   },
                 ]
@@ -1879,7 +1956,7 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
           }
         ]);
 
-  void updateStepState(int itemId, int procedure, int stepId, bool newState) {
+  void updateStepState(int procedure, int itemId, int stepId, bool newState) {
     final updatedMaps = List<Map<String, dynamic>>.from(state);
 
     updatedMaps[procedure]["steps"][itemId]["steps"][stepId]['state'] =
