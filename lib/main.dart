@@ -1,4 +1,5 @@
 import 'package:bcs/home.dart';
+import 'package:bcs/slide2.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
+      home: const Slide2(),
     );
   }
 }
@@ -44,6 +46,8 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+
+enum MyProps { radius, width, height }
 
 class SplashScreen1 extends StatelessWidget {
   const SplashScreen1({super.key});

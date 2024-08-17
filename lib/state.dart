@@ -6,6 +6,11 @@ final visibleProvider =
 final startProvider = StateProvider<int>((ref) => 0);
 final prechecksProvider = StateProvider<int>((ref) => 0);
 
+final knob1value = StateProvider<double>((ref) => 0.0);
+final knob2value = StateProvider<double>((ref) => 0.0);
+
+final generalProvider = StateProvider<bool>((ref) => false);
+
 final prechecksProcedure = StateProvider<bool>((ref) => true);
 final bprechecksProcedure = StateProvider<bool>((ref) => false);
 final systemchecksProcedure = StateProvider<bool>((ref) => false);
@@ -1555,21 +1560,27 @@ class MapListStateNotifier extends StateNotifier<List<Map<String, dynamic>>> {
                     "state": false,
                   },
                   {
+                    "Text": "Economisers drain valves.",
+                    "Voice": "voice/cold6-6.wav",
+                    "id": 2,
+                    "state": false,
+                  },
+                  {
                     "Text": "Main steam stop pulse valves.",
                     "Voice": "voice/cold6-3.wav",
-                    "id": 2,
+                    "id": 3,
                     "state": false,
                   },
                   {
                     "Text": "Fuel recirculating valve.",
                     "Voice": "voice/cold6-4.wav",
-                    "id": 3,
+                    "id": 4,
                     "state": false,
                   },
                   {
                     "Text": "Set storage tank to boilers isolating valve.",
                     "Voice": "voice/cold6-5.wav",
-                    "id": 4,
+                    "id": 5,
                     "state": false,
                   },
                 ]

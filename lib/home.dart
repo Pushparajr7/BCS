@@ -122,6 +122,7 @@ class _HomeState extends ConsumerState<Home> {
                         // height: HEIGHT*0.018,
                         child: Center(
                             child: Text("Operations of the Boiler",
+                                textAlign: TextAlign.center,
                                 style: GoogleFonts.poppins(
                                     color: Colors.grey, fontSize: 30))),
                         // child: TextButton(onPressed: (){}, child: Text("Boiler Training mode"))
@@ -272,6 +273,7 @@ class _HomeState extends ConsumerState<Home> {
                                       ref
                                           .read(prechecksProvider.notifier)
                                           .state = 0;
+
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -284,24 +286,25 @@ class _HomeState extends ConsumerState<Home> {
                                             color: Colors.black, fontSize: 30)),
                                   )),
                               Container(
-                                  width: WIDTH * 0.4,
-                                  decoration: const BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  child: TextButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        bprechecks = false;
-                                        prechecks = false;
-                                        systemchecks = true;
-                                      });
-                                    },
-                                    child: Text("System vise Prechecks",
-                                        textAlign: TextAlign.center,
-                                        style: GoogleFonts.poppins(
-                                            color: Colors.black, fontSize: 30)),
-                                  )),
+                                width: WIDTH * 0.4,
+                                decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      bprechecks = false;
+                                      prechecks = false;
+                                      systemchecks = true;
+                                    });
+                                  },
+                                  child: Text("System vise Prechecks",
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.black, fontSize: 30)),
+                                ),
+                              ),
                             ],
                           ),
                         )
