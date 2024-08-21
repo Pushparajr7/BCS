@@ -5,17 +5,17 @@ import 'package:flutter_svg/svg.dart';
 import 'package:simple_animations/animation_builder/custom_animation_builder.dart';
 import 'package:simple_animations/movie_tween/movie_tween.dart';
 
-class Knob extends ConsumerStatefulWidget {
-  const Knob({super.key});
+class Knob2 extends ConsumerStatefulWidget {
+  const Knob2({super.key});
 
   @override
-  ConsumerState<Knob> createState() => _KnobState();
+  ConsumerState<Knob2> createState() => _Knob2State();
 }
 
-class _KnobState extends ConsumerState<Knob>
+class _Knob2State extends ConsumerState<Knob2>
     with SingleTickerProviderStateMixin {
-  double knobValue1 = 0;
-  double knobValue2 = 0;
+  double knobValue1 = 180;
+  double knobValue2 = 180;
 
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -32,23 +32,85 @@ class _KnobState extends ConsumerState<Knob>
   late MovieTween tween;
   late Control control;
 
+  bool clicked = false;
+
   void _updateTween() {
-    // final value1 = ref.watch(knob1value);
-    // final value2 = ref.watch(knob2value);
+    if (clicked == false) {
+      final isStateTrue =
+          ref.read(mapListProvider)[0]["steps"][0]["steps"][1]["state"];
+
+      final isOffTrue =
+          ref.read(mapListProvider)[0]["steps"][0]["steps"][2]["state"];
+      if (isStateTrue && isOffTrue == false) {
+        print("State 1..........................");
+        knobValue1 = 180;
+        knobValue2 = 0;
+      } else if (isOffTrue && isStateTrue) {
+        print("State 2..........................");
+        knobValue1 = 0;
+        knobValue2 = 180;
+      } else {
+        knobValue1 = 180; // Default value when both are false
+        knobValue2 = 180; // Default value when both are false
+      }
+    }
 
     tween = MovieTween()
       ..scene(
               begin: const Duration(seconds: 0),
               end: const Duration(seconds: 3))
           .tween('knob', Tween<double>(begin: knobValue1, end: knobValue2));
+    _controller.reset();
+    _controller.forward();
+    clicked = false;
     print(knobValue1);
     print(knobValue2);
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  final combinedStateProvider = Provider<bool>((ref) {
+    final state1 = ref.watch(mapListProvider
+        .select((state) => state[0]["steps"][0]["steps"][8]["state"]));
+    final state2 = ref.watch(mapListProvider.select((state) => state[0]["steps"]
+        [0]["steps"][16]["state"])); // Adjust the index as needed
+
+    return state1 && state2; // Combine the states based on your condition
+  });
+
+  @override
   Widget build(BuildContext context) {
     double WIDTH = MediaQuery.of(context).size.width;
     double HEIGHT = MediaQuery.of(context).size.height;
+
+    ref.listen<bool>(
+        mapListProvider
+            .select((state) => state[0]["steps"][0]["steps"][1]["state"]),
+        (previous, next) {
+      if (next) {
+        setState(() {
+          print(
+              "state============> ${ref.read(mapListProvider)[0]["steps"][0]["steps"][8]["state"]}");
+          _updateTween();
+        });
+      }
+    });
+    ref.listen<bool>(
+        mapListProvider
+            .select((state) => state[0]["steps"][0]["steps"][2]["state"]),
+        (previous, next) {
+      if (next) {
+        setState(() {
+          print(
+              "state============> ${ref.read(mapListProvider)[0]["steps"][0]["steps"][16]["state"]}");
+          _updateTween();
+        });
+      }
+    });
 
     return CustomAnimationBuilder<Movie>(
         control: control,
@@ -63,18 +125,19 @@ class _KnobState extends ConsumerState<Knob>
               children: [
                 SvgPicture.asset(
                     height: HEIGHT * 0.05,
-                    "assets/images/b1protect.svg"), // 301
+                    "assets/images/b2protect.svg"), // 301
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
-                          top: HEIGHT * 0.007, left: WIDTH * 0.005),
+                          top: HEIGHT * 0.01, left: WIDTH * 0.005),
                       child: MouseRegion(
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              clicked = true;
                               knobValue1 = knobValue2;
                               knobValue2 = 0;
                               _updateTween();
@@ -86,9 +149,10 @@ class _KnobState extends ConsumerState<Knob>
                           child: const FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              "JOIN\n RC\n SPR AV",
+                              "LIGHTING\n UP FROM\n FAN",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 4, fontWeight: FontWeight.bold),
+                                  fontSize: 5, fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -112,6 +176,7 @@ class _KnobState extends ConsumerState<Knob>
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
+                                    clicked = true;
                                     knobValue1 = knobValue2;
                                     knobValue2 = 90;
                                     _updateTween();
@@ -127,7 +192,7 @@ class _KnobState extends ConsumerState<Knob>
                                     child: Text(
                                       "ON",
                                       style: TextStyle(
-                                          fontSize: 4,
+                                          fontSize: 5,
                                           fontWeight: FontWeight.bold),
                                     )),
                               ),
@@ -152,6 +217,7 @@ class _KnobState extends ConsumerState<Knob>
                       child: GestureDetector(
                           onTap: () {
                             setState(() {
+                              clicked = true;
                               knobValue1 = knobValue2;
                               knobValue2 = 180;
                               _updateTween();
@@ -168,7 +234,7 @@ class _KnobState extends ConsumerState<Knob>
                                 child: const Text(
                                   "OFF",
                                   style: TextStyle(
-                                      fontSize: 4, fontWeight: FontWeight.bold),
+                                      fontSize: 5, fontWeight: FontWeight.bold),
                                 ),
                               ))
                           //  SvgPicture.asset(
